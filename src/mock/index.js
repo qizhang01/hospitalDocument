@@ -296,7 +296,7 @@ export default [
 								icon: "permission",
 
 								type: "2",
-								url: "/cssAnimation/jumpBlock"
+								url: "/cssAnimation/chartView"
 
 							},
 							{

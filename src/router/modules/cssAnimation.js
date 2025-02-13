@@ -20,5 +20,17 @@ export default {
 			name: "shootingStar",
 			meta: { title: "流星雨", icon: "star" }
 		},
+		{
+			path: "/cssAnimation/chartView",
+			component: () => import("@/views/css-animation/chartView.vue"),
+			name: "chartView",
+			meta: { title: "体温表", icon: "star" }
+		},
+		{
+			path: "/cssAnimation/downBtn",
+			component: () => import("@/views/css-animation/downBtn.vue"),
+			name: "downBtn",
+			meta: { title: "新体温表", icon: "star" }
+		},
 	]
 };
