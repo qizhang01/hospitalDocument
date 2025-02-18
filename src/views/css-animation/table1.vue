@@ -73,62 +73,11 @@
           <td >分值</td>
           <td >测定值</td>
         </tr>
-        <tr>
-          <td rowspan="3"><p>1.心率</p><p>(次/min)</p></td>
-          <td >&lt80 或 >180</td>
-          <td >4</td>
-          <td rowspan="3"></td>
-          <td >4</td>
-          <td rowspan="3"></td>
-          <td >4</td>
-          <td rowspan="3"></td>
-          <td >4</td>
-          <td rowspan="3"></td>
-        </tr>
-        <tr>
-          <td >80-120 或 160-180</td>
-          <td >6</td>
-          <td >6</td>
-          <td >6</td>
-          <td >6</td>
-        </tr>
-        <tr>
-          <td >其余</td>
-          <td >10</td>
-          <td >10</td>
-          <td >10</td>
-          <td >10</td>
-        </tr>
-
-        <tr>
-          <td rowspan="3"><p>2.血压</p><p>收缩压</p><p>(mkg)</p></td>
-          <td >&lt40 或 >100</td>
-          <td >4</td>
-          <td rowspan="3"></td>
-          <td >4</td>
-          <td rowspan="3"></td>
-          <td >4</td>
-          <td rowspan="3"></td>
-          <td >4</td>
-          <td rowspan="3"></td>
-        </tr>
-        <tr>
-          <td >40-50 或 90-100</td>
-          <td >6</td>
-          <td >6</td>
-          <td >6</td>
-          <td >6</td>
-        </tr>
-        <tr>
-          <td >其余</td>
-          <td >10</td>
-          <td >10</td>
-          <td >10</td>
-          <td >10</td>
-        </tr>
+        <table-line :valArr="heartRateValArr" column1Text="1.心率 (次/min)" :scoreStandardTextArr="heartRateItemArr"  :handleClick="handleSelectHeartValue"></table-line>
+        <table-line :valArr="bloodRateValArr" column1Text="2.血压收缩压 (mkg)" :scoreStandardTextArr="bloodRateItemArr"  :handleClick="handleSelectBooldValue"></table-line>
         <table-line :valArr="breatheRateValArr" column1Text="3.呼吸 (次/min)" :scoreStandardTextArr="breatheRateItemArr"  :handleClick="handleSelectBreatheValue"></table-line>
         <table-line :valArr="redCellRateValArr" column1Text="10.红细胞压积比" :scoreStandardTextArr="redCellRateItemArr"  :handleClick="handleSelectRedCellValue"></table-line>
-        <table-line :valArr="stomachRateValArr" column1Text="11.胃肠表现" :scoreStandardTextArr="stomachRateItemArr"  :handleClick="handleSelectRedCellValue"></table-line>
+        <table-line :valArr="stomachRateValArr" column1Text="11.胃肠表现" :scoreStandardTextArr="stomachRateItemArr"  :handleClick="handleSelectStomachValue"></table-line>
 
         <tr ><td colspan="10"><span class="sign">评分者签名</span></td></tr>
         <tr><td colspan="10"><span class="sign">上级医师签名</span></td></tr>
@@ -151,16 +100,24 @@
     bedNo: 22,
     documentNo: 168-122
   }
-    const heartRateText = ["<80 或 >180","80-120 或 160-180","其余"]
-    const booldRateArr = ["&lt40 或 &rt100","40-50 或 90-100","其余"]
+    const heartRateItemArr = ["<80 或 >180","80-120 或 160-180","其余"]
+    const bloodRateItemArr = ["&lt40 或 &rt100","40-50 或 90-100","其余"]
     const breatheRateItemArr = ["<20 或 >100","20-25 或 60-100","其余"]
     const redCellRateItemArr = ["<0.2",'0.2-0.4', '其余']
     const stomachRateItemArr = ['腹胀并消化道出血','腹胀或消化道出血', '其余']
-
+    
+    const heartRateValArr = ref([])
+    const bloodRateValArr = ref([])
     const breatheRateValArr = ref([])
     const redCellRateValArr = ref([])
     const stomachRateValArr = ref([])
 
+    const handleSelectHeartValue = (col, val)=>{
+
+  }
+    const handleSelectBooldValue = (col, val)=>{
+
+    }
     const handleSelectBreatheValue=(col, val)=>{
       const orginValArr = [...breatheRateValArr.value]
       orginValArr[col-1] = val
