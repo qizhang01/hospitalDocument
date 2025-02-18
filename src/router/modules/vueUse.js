@@ -9,7 +9,7 @@ export default {
 	alwaysShow: true, // will always show the root menu
 	name: "vueUse",
 	meta: {
-		title: "vueUse学习",
+		title: "成品文书",
 		icon: "personnel"
 	},
 	children: [
@@ -17,30 +17,15 @@ export default {
 			path: "/vueUse/elements",
 			redirect: "/elements/useDraggable",
 			name: "elements",
-			meta: { title: "elements", icon: "example" },
+			meta: { title: "样例", icon: "example" },
 			children: [
 				{
 					path: "/elements/useIntersectionObserver",
-					component: () => import("@/views/vue-use/elements/useIntersectionObserver.vue"),
-					name: "useIntersectionObserver",
-					meta: { title: "useIntersectionO", icon: "star" }
+					component: () => import("@/views/timeChat/timeChat.vue"),
+					name: "editor",
+					meta: { title: "插入html", icon: "star" }
 				}
 			]
 		},
-		{
-			path: "/vueUse/component",
-			redirect: "/component/createReusableTemplate",
-			name: "component",
-			meta: { title: "component", icon: "example" },
-			children: [
-				{
-					path: "/component/createReusableTemplate",
-					component: () => import("@/views/vue-use/component/createReusableTemplate.vue"),
-					name: "createReusableTemplate",
-					meta: { title: "createReusableT", icon: "star" }
-				}
-
-			]
-		}
 	]
 };

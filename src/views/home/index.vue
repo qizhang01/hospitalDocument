@@ -19,7 +19,7 @@
 
 				<el-timeline-item center placement="top">
 					<el-link style="font-size: 20px" type="danger" href="https://juejin.cn/user/1310273591836957" target="_blank">
-						博客主页：程序员三千
+						博客主页
 					</el-link>
 				</el-timeline-item>
 			</el-timeline>

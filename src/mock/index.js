@@ -40,7 +40,7 @@ export default [
 				},
 				obj: {
 					sys_token: "d33a7fdf547d2a086a96f4d38253cbc9",
-					admin_nick_name: "程序员三千",
+					admin_nick_name: "张琦",
 					admin_id: "1",
 					avatar: "https://osstest.eetop.com/bewt365/578d0d88e7ad2f9ae99f10eee8e08d9c.jpg"
 				}
@@ -301,7 +301,7 @@ export default [
 							},
 							{
 								id: "4-3",
-								name: "奇怪的下载按钮",
+								name: "新体温表",
 								parent_id: "3",
 								icon: "permission",
 

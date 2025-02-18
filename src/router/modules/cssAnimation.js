@@ -9,16 +9,16 @@ export default {
 	alwaysShow: true, // will always show the root menu
 	name: "css",
 	meta: {
-		title: "CSS动画",
+		title: "健康文书",
 		icon: "article-ranking"
 	},
 	children: [
 
 		{
 			path: "/cssAnimation/shootingStar",
-			component: () => import("@/views/css-animation/shootingStar.vue"),
+			component: () => import("@/views/css-animation/print.vue"),
 			name: "shootingStar",
-			meta: { title: "流星雨", icon: "star" }
+			meta: { title: "d3开发中", icon: "star" }
 		},
 		{
 			path: "/cssAnimation/chartView",
