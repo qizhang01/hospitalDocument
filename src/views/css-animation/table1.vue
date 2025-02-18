@@ -75,7 +75,7 @@
         </tr>
         <tr>
           <td rowspan="3"><p>1.心率</p><p>(次/min)</p></td>
-          <td >&lt80 或 &rt180</td>
+          <td >&lt80 或 >180</td>
           <td >4</td>
           <td rowspan="3"></td>
           <td >4</td>
@@ -102,7 +102,7 @@
 
         <tr>
           <td rowspan="3"><p>2.血压</p><p>收缩压</p><p>(mkg)</p></td>
-          <td >&lt40 或 &rt100</td>
+          <td >&lt40 或 >100</td>
           <td >4</td>
           <td rowspan="3"></td>
           <td >4</td>
@@ -126,6 +126,7 @@
           <td >10</td>
           <td >10</td>
         </tr>
+        <table-line :valArr="[4, 6, 10]" column1Text="呼吸 (次/min)" :scoreStandardTextArr="breatheRateArr"></table-line>
     </tbody>
       </table>
       <div class="legend">
@@ -145,8 +146,14 @@
   </template>
   
   <script setup>
-  const heartRateText = ["<80 或 >180","80-120 或 160-180","其余"]
+  import tableLine from './components/tableLine.vue'
+    const heartRateText = ["<80 或 >180","80-120 或 160-180","其余"]
     const booldRateArr = ["&lt40 或 &rt100","40-50 或 90-100","其余"]
+    const breatheRateArr = ["<20 或 >100","20-25 或 60-100","其余"]
+
+    const handleSelectBreatheValue=()=>{
+        
+    }
   </script>
   
   <style lang="scss" scoped>
