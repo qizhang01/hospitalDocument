@@ -18,7 +18,7 @@ export default {
 			path: "/cssAnimation/shootingStar",
 			component: () => import("@/views/css-animation/table1.vue"),
 			name: "shootingStar",
-			meta: { title: "d3开发中", icon: "star" }
+			meta: { title: "NICU危重病例评分", icon: "star" }
 		},
 		{
 			path: "/cssAnimation/chartView",

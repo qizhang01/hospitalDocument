@@ -11,50 +11,50 @@
       </div> -->
       <table class="temperatureChart">
         <caption>
-          <p style="font-size: 20px; font-weight: bold">{{"info.originName" }}</p>
-          <p style="font-size: 20px; font-weight: bold">体温单</p>
+          <p style="font-size: 20px; font-weight: bold">NICU危重病例评分</p>
+          <hr style="margin: 6px 0; color: black;">
           <p style="position: relative; text-align: left">
             <span class="tbale-label">姓名：</span
             ><span
               style="display: inline-block; width: 50px; text-align: left"
-              >{{ "info.name" }}</span
+              >{{ patientInfo.name }}</span
             >
             <span class="tbale-label">年龄：</span>
             <span
               style="display: inline-block; width: 35px; text-align: left"
-              >{{ 15 }}</span
+              >{{ patientInfo.age }}</span
             >
             <span class="tbale-label">科室：</span>
             <span
               style="display: inline-block; width: 65px; text-align: left"
-              >{{ "-" }}</span
+              >{{ patientInfo.department }}</span
             >
             <span class="tbale-label">性别：</span>
             <span
               style="display: inline-block; width: 35px; text-align: left"
-              >{{ "info.sex" }}</span
+              >{{ patientInfo.gender }}</span
             >
             <span class="tbale-label">出生日期：</span>
             <span
               style="display: inline-block; width: 160px; text-align: left"
-              >{{  "-" }}</span
+              >{{ patientInfo.bornDate }}</span
             >
             <span class="tbale-label">床号：</span>
             <span
               style="display: inline-block; width: 60px; text-align: left"
-              >{{ "info.cwh" }}</span
+              >{{ patientInfo.bedNo }}</span
             >
             <span class="tbale-label">健康档案号：</span>
             <span
               style="display: inline-block; width: 100px; text-align: left"
-              >{{ "info.hospCode "}}</span
+              >{{ patientInfo.documentNo}}</span
             >
           </p>
-          <p>一,新生儿危重病例评分表 (首次评分入院后尽快完成),上次医生核定并记入其查房记录中, 危重患者每3天复查一次</p>
+          <p style="font-size: 14px; font-weight: bold">一,新生儿危重病例评分表 (首次评分入院后尽快完成),上次医生核定并记入其查房记录中, 危重患者每3天复查一次</p>
         </caption>
         <tbody>
         <tr>
-          <td class="table-just" rowspan="2">
+          <td class="first_column" rowspan="2">
             检查项目
           </td>
           <td rowspan="2">评分标准</td>
@@ -126,33 +126,51 @@
           <td >10</td>
           <td >10</td>
         </tr>
-        <table-line :valArr="[4, 6, 10]" column1Text="呼吸 (次/min)" :scoreStandardTextArr="breatheRateArr"></table-line>
-    </tbody>
+        <table-line :valArr="breatheRateValArr" column1Text="3.呼吸 (次/min)" :scoreStandardTextArr="breatheRateItemArr"  :handleClick="handleSelectBreatheValue"></table-line>
+        <table-line :valArr="redCellRateValArr" column1Text="10.红细胞压积比" :scoreStandardTextArr="redCellRateItemArr"  :handleClick="handleSelectRedCellValue"></table-line>
+        <table-line :valArr="stomachRateValArr" column1Text="11.胃肠表现" :scoreStandardTextArr="stomachRateItemArr"  :handleClick="handleSelectRedCellValue"></table-line>
+
+        <tr ><td colspan="10"><span class="sign">评分者签名</span></td></tr>
+        <tr><td colspan="10"><span class="sign">上级医师签名</span></td></tr>
+      </tbody>
       </table>
-      <div class="legend">
-        <span>标注：</span>
-        <div class="legend-text">
-          <div class="legend-item" style="color: blue">体温: x</div>
-          <div class="legend-item">呼吸: ●</div>
-          <div class="legend-item">物理降温： ○</div>
-          <div class="legend-item" style="color: red">心率：○</div>
-          <div class="legend-item" style="color: red">脉搏：●</div>
-        </div>
-        <div style="font-size: 20px; font-weight: bold">
-          {{ `第周` }}
-        </div>
-      </div>
+      <bottom-legend></bottom-legend>
     </div>
   </template>
   
   <script setup>
   import tableLine from './components/tableLine.vue'
+  import bottomLegend from './components/bottomLegend.vue';
+  import { ref, watch } from "vue";
+  const patientInfo={
+    name: '某患者',
+    age: 35,
+    department: '心肺科',
+    gender: '男',
+    bornDate: '1998-2-14',
+    bedNo: 22,
+    documentNo: 168-122
+  }
     const heartRateText = ["<80 或 >180","80-120 或 160-180","其余"]
     const booldRateArr = ["&lt40 或 &rt100","40-50 或 90-100","其余"]
-    const breatheRateArr = ["<20 或 >100","20-25 或 60-100","其余"]
+    const breatheRateItemArr = ["<20 或 >100","20-25 或 60-100","其余"]
+    const redCellRateItemArr = ["<0.2",'0.2-0.4', '其余']
+    const stomachRateItemArr = ['腹胀并消化道出血','腹胀或消化道出血', '其余']
 
-    const handleSelectBreatheValue=()=>{
-        
+    const breatheRateValArr = ref([])
+    const redCellRateValArr = ref([])
+    const stomachRateValArr = ref([])
+
+    const handleSelectBreatheValue=(col, val)=>{
+      const orginValArr = [...breatheRateValArr.value]
+      orginValArr[col-1] = val
+      breatheRateValArr.value = orginValArr
+    }
+    
+    const handleSelectRedCellValue = (col, val)=>{}
+
+    const handleSelectStomachValue = (col, val)=>{
+
     }
   </script>
   
@@ -186,6 +204,13 @@
     .legend-item {
       margin-right: 20px;
     }
+  }
+  .first_column {
+    width: 5px;
+  }
+  .sign {
+    position: relative;
+    right: 200px;
   }
   </style>
 
