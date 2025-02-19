@@ -13,7 +13,12 @@ export default {
 		icon: "article-ranking"
 	},
 	children: [
-
+		{
+			path: "/cssAnimation/videoMaskText",
+			component: () => import("@/views/css-animation/painEstimateTable"),
+			name: "painEstimateTable",
+			meta: { title: "疼痛评估表", icon: "star" }
+		},
 		{
 			path: "/cssAnimation/shootingStar",
 			component: () => import("@/views/css-animation/table1.vue"),

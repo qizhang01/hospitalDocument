@@ -18,6 +18,7 @@
     padding: 104px 20px 20px;
     width: 100%;
     min-height: calc(100vh - 50px - 43px);
+	background-color: white;
   }
 </style>
 

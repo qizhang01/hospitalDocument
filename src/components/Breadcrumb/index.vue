@@ -22,7 +22,7 @@
     font-size: 14px;
     .no-redirect {
       cursor: text;
-      color: #97a8be;
+      color: #0066ec;
     }
     .redirect {
       font-weight: 600;
