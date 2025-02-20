@@ -14,6 +14,12 @@ export default {
 	},
 	children: [
 		{
+			path: "/cssAnimation/riskEstimate",
+			component: () => import("@/views/css-animation/riskEstimateTable"),
+			name: "riskEstimateTable",
+			meta: { title: "风险评估表", icon: "star" }
+		},
+		{
 			path: "/cssAnimation/videoMaskText",
 			component: () => import("@/views/css-animation/painEstimateTable"),
 			name: "painEstimateTable",

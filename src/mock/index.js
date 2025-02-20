@@ -321,11 +321,11 @@ export default [
 							},
 							{
 								id: "4-6",
-								name: "翻卡片动画",
+								name: "riskEstimate",
 								parent_id: "3",
 								icon: "permission",
 								type: "2",
-								url: "/cssAnimation/filpCard"
+								url: "/cssAnimation/riskEstimate"
 
 							},
 							{

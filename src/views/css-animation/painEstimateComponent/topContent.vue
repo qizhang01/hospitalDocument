@@ -1,6 +1,6 @@
 <template>
     <div class="content">
-      <p style="font-size: 16px; font-weight: bold; text-align: center;">疼痛强度(视觉模拟评分法)</p>
+      <p style="font-size: 16px; font-weight: bold; text-align: center; padding: 6px 0;">疼痛强度(视觉模拟评分法)</p>
       <div style="position: relative; text-align: center">
         <img :src="src" alt="" style="height: 300px;" >
       </div>
