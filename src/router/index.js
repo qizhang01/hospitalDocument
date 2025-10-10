@@ -7,7 +7,7 @@ import store from "@/store";
 import layout from "@/layout";
 import permissions from "./modules/permissions";
 import healthManage from "./modules/healthManage";
-import cssAnimation from "./modules/cssAnimation";
+import estimateAndScore from "./modules/estimateAndScore";
 import statistics from "./modules/statistics";
 import doctorAdvice from "./modules/doctorAdvice";
 /**
@@ -17,7 +17,7 @@ export const privateRoutes = [
 	permissions,
 	doctorAdvice,
 	healthManage,
-	cssAnimation,
+	estimateAndScore,
 	statistics,
 ];
 /**
