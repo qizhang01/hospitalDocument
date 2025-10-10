@@ -9,7 +9,7 @@ export default {
 	alwaysShow: true, // will always show the root menu
 	name: "adminAuth",
 	meta: {
-		title: "权限管理",
+		title: "医嘱信息",
 		icon: "permission"
 	},
 	children: [

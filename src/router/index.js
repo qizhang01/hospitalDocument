@@ -37,7 +37,7 @@ export const publicRoutes = [
 				path: "/home",
 				name: "home",
 				component: () => import("@/views/home/index"),
-				meta: { title: "首页", icon: "home", affix: true }, // affix=true,tagViews右侧没有关闭按钮
+				meta: { title: "切换病区", icon: "home", affix: true }, // affix=true,tagViews右侧没有关闭按钮
 				hidden: true// true不显示在侧边栏
 			},
 			{
@@ -81,7 +81,6 @@ export function resetRouter() {
 
 const router = createRouter({
 	history: createWebHashHistory(),
-	// routes: [...publicRoutes, ...privateRoutes]
 	routes: publicRoutes
 
 });

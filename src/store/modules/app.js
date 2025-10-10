@@ -41,12 +41,12 @@ export default {
 					// list第一位加入删除了的首页tag
 					state.tagsViewList.unshift({
 						fullPath: "/home",
-						meta: { title: "首页", affix: true },
+						meta: { title: "切换病区", affix: true },
 						name: "home",
 						params: {},
 						path: "/home",
 						query: {},
-						title: "首页"
+						title: "切换病区"
 					});
 				}
 			} else if (payload.type === "right") {

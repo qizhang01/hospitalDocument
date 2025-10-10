@@ -28,12 +28,12 @@ export function filterPrivateRoutes(routes, roles) {
 	const res = [];
 	routes.forEach(route => {
 		const tmp = { ...route };
-		if (hasPermission(roles, tmp)) {
+	
 			if (tmp.children) {
 				tmp.children = filterPrivateRoutes(tmp.children, roles);
 			}
 			res.push(tmp);
-		}
+
 	});
 
 	return res;

@@ -101,7 +101,7 @@
     documentNo: 168-122
   }
     const heartRateItemArr = ["<80 或 >180","80-120 或 160-180","其余"]
-    const bloodRateItemArr = ["&lt40 或 &rt100","40-50 或 90-100","其余"]
+    const bloodRateItemArr = ["<40 或 >100","40-50 或 90-100","其余"]
     const breatheRateItemArr = ["<20 或 >100","20-25 或 60-100","其余"]
     const redCellRateItemArr = ["<0.2",'0.2-0.4', '其余']
     const stomachRateItemArr = ['腹胀并消化道出血','腹胀或消化道出血', '其余']

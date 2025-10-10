@@ -14,7 +14,7 @@
 	<!-- 渲染 item 项 -->
 	<template v-else>
 		<el-menu-item v-if="!route.hidden" :index="route.path">
-			<menu-item :title="route.meta.title" :icon="route.meta.icon"></menu-item>
+			<menu-item :title="route.meta.title" ></menu-item>
 		</el-menu-item>
 	</template>
 </template>

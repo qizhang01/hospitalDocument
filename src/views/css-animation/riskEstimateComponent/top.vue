@@ -39,8 +39,8 @@
     import { defineProps } from "vue";
 
 const props = defineProps({
-    patientInfo: Object}
-)
+    patientInfo: Object
+})
 </script>
 
 <style lang="scss" scoped>

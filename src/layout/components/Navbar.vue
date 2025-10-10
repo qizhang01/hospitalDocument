@@ -24,13 +24,13 @@
 				<template #dropdown>
 					<el-dropdown-menu class="user-dropdown">
 						<router-link to="/">
-							<el-dropdown-item> 首页</el-dropdown-item>
+							<el-dropdown-item>切换病区</el-dropdown-item>
 						</router-link>
 						<el-dropdown-item @click="editCropper">
-							修改头像
+							更改密码
 						</el-dropdown-item>
 						<el-dropdown-item @click="logout">
-							退出登录
+							退出系统
 						</el-dropdown-item>
 					</el-dropdown-menu>
 				</template>

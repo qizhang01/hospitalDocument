@@ -1,29 +1,5 @@
 <template>
 	<el-row :gutter="20" class="fdr">
-		<el-col :span="6">
-			<el-timeline>
-				<el-timeline-item center placement="top">
-					<el-card class="c4">
-						<h3>一个极简的后台基础模板，企业级！开箱即用！</h3>
-						<div style="margin-top: 10px">项目技术栈：Vue3 + JavaScript + Vite4 + Element-plus2.3.5</div>
-					</el-card>
-				</el-timeline-item>
-				<el-timeline-item placement="top">
-					<el-card class="c4">
-						<h3>项目主要技术方案：</h3>
-						<div v-for="item in list">
-							<div style="padding: 8px 0">{{item}}</div>
-						</div>
-					</el-card>
-				</el-timeline-item>
-
-				<el-timeline-item center placement="top">
-					<el-link style="font-size: 20px" type="danger" href="https://juejin.cn/user/1310273591836957" target="_blank">
-						博客主页
-					</el-link>
-				</el-timeline-item>
-			</el-timeline>
-		</el-col>
 		<el-col :span="18">
 			<el-container class="fdc" style="margin-top: 10px">
 				<el-row :gutter="20" class="fdr">
@@ -64,11 +40,6 @@
 						</el-card>
 					</el-col>
 				</el-row>
-
-				<!--图表-->
-				<div style="display: flex;flex: 1;width: 100%">
-					<div id="main"></div>
-				</div>
 			</el-container>
 		</el-col>
 	</el-row>
@@ -82,13 +53,7 @@ $success: #67c23a;
 $warning: #e6a23c;
 $danger: #f56c6c;
 $primary: #409eff;
-p {
-  line-height: 30px;
-  font-family: PingFangSC-Regular, "PingFang SC";
-  font-weight: 400;
-  font-size: 16px;
-  color: #333;
-}
+
 .box-card {
   display: flex;
   flex-direction: row;
@@ -135,26 +100,11 @@ p {
   color: $warning;
 
 }
-#main {
-  width: 100%;
-  min-height: 40rem;
-
-}
 
 </style>
 
 <script setup>
 import { ref, onMounted } from "vue";
-import * as echarts from "echarts";
-
-// const sidebarOpened = computed(() =>
-//     store.getters.sidebarOpened ? 'hamburger-opened' : 'hamburger-closed'
-// )
-//
-// watch(sidebarOpened, val => {
-//  console.log("sidebarOpened = ",sidebarOpened.value)
-//
-// })
 
 const list = ref([
 	"1、接口模块封装方案",
@@ -179,98 +129,7 @@ onMounted(() => {
 });
 
 const initChart = () => {
-	const chartDom = document.getElementById("main");
-	const myChart = echarts.init(chartDom);
-	const option = {
-		tooltip: {
-			trigger: "axis",
-			axisPointer: {
-				type: "cross",
-				crossStyle: {
-					color: "#999"
-				}
-			}
-		},
-		toolbox: {
-			feature: {
-				magicType: { show: true, type: ["line", "bar"] },
-				restore: { show: true },
-				saveAsImage: { show: true }
-			}
-		},
-		legend: {
-			data: ["Evaporation", "Precipitation", "Temperature"]
-		},
-		xAxis: [
-			{
-				type: "category",
-				data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-				axisPointer: {
-					type: "shadow"
-				}
-			}
-		],
-		yAxis: [
-			{
-				type: "value",
-				name: "Precipitation",
-				min: 0,
-				max: 250,
-				interval: 50,
-				axisLabel: {
-					formatter: "{value} ml"
-				}
-			},
-			{
-				type: "value",
-				name: "Temperature",
-				min: 0,
-				max: 25,
-				interval: 5,
-				axisLabel: {
-					formatter: "{value} °C"
-				}
-			}
-		],
-		series: [
-			{
-				name: "Evaporation",
-				type: "bar",
-				tooltip: {
-					valueFormatter: function(value) {
-						return value + " ml";
-					}
-				},
-				data: [
-					2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3
-				]
-			},
-			{
-				name: "Precipitation",
-				type: "bar",
-				tooltip: {
-					valueFormatter: function(value) {
-						return value + " ml";
-					}
-				},
-				data: [
-					2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3
-				]
-			},
-			{
-				name: "Temperature",
-				type: "line",
-				yAxisIndex: 1,
-				tooltip: {
-					valueFormatter: function(value) {
-						return value + " °C";
-					}
-				},
-				data: [2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2]
-			}
-		]
-	};
-	option && myChart.setOption(option);
+
 };
 
 </script>

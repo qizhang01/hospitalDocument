@@ -9,33 +9,142 @@ export default {
 	alwaysShow: true, // will always show the root menu
 	name: "css",
 	meta: {
-		title: "健康文书",
+		title: "评估评分",
 		icon: "article-ranking"
 	},
 	children: [
 		{
+			path: "/cssAnimation/firstRecord",
+			component: () => import("@/views/css-animation/downBtn.vue"),
+			name: "firstRecord",
+			meta: { title: "首次护程表", icon: "star" }
+		},
+		{
+			path: "/cssAnimation/presureInjure",
+			component: () => import("@/views/css-animation/downBtn.vue"),
+			name: "presureInjure",
+			meta: { title: "住院患者压力性损伤危险因素评估表", icon: "star" }
+		},
+
+		{
+			path: "/cssAnimation/surgicalThrombus",
+			component: () => import("@/views/css-animation/downBtn.vue"),
+			name: "surgicalThrombus",
+			meta: { title: "外科住院患者静脉血栓栓塞症风险评估表", icon: "star" }
+		},
+		{
+			path: "/cssAnimation/internalThrombus",
+			component: () => import("@/views/css-animation/downBtn.vue"),
+			name: "internalThrombus",
+			meta: { title: "内科住院患者静脉血栓栓塞症风险评估表", icon: "star" }
+		},
+
+		{
+			path: "/cssAnimation/nurseRecord",
+			component: () => import("@/views/css-animation/downBtn.vue"),
+			name: "nurseRecord",
+			meta: { title: "护理记录单", icon: "star" }
+		},
+		{
+			path: "/cssAnimation/nurseLevelEstimate",
+			component: () => import("@/views/css-animation/downBtn.vue"),
+			name: "nurseLevelEstimate",
+			meta: { title: "护理分级评定表", icon: "star" }
+		},
+		
+		{
+			path: "/cssAnimation/healthConduct",
+			component: () => import("@/views/css-animation/riskEstimateTable.vue"),
+			name: "healthConduct",
+			meta: { title: "健康指导表", icon: "star" }
+		},
+		{
 			path: "/cssAnimation/riskEstimate",
 			component: () => import("@/views/css-animation/riskEstimateTable"),
 			name: "riskEstimateTable",
-			meta: { title: "风险评估表", icon: "star" }
+			meta: { title: "住院病人风险评估表", icon: "star" }
 		},
+
 		{
-			path: "/cssAnimation/videoMaskText",
+			path: "/cssAnimation/painNurse",
 			component: () => import("@/views/css-animation/painEstimateTable"),
-			name: "painEstimateTable",
-			meta: { title: "疼痛评估表", icon: "star" }
+			name: "painNurse",
+			meta: { title: "疼痛护理记录", icon: "star" }
 		},
 		{
-			path: "/cssAnimation/shootingStar",
+			path: "/cssAnimation/criticalPatientNEWS",
 			component: () => import("@/views/css-animation/table1.vue"),
-			name: "shootingStar",
-			meta: { title: "NICU危重病例评分", icon: "star" }
+			name: "criticalPatientNEWS",
+			meta: { title: "危重患者病情NEWS评估表", icon: "star" }
+		},
+
+		{
+			path: "/cssAnimation/riskEstimate",
+			component: () => import("@/views/css-animation/riskEstimateTable"),
+			name: "riskEstimateTable",
+			meta: { title: "疼痛评估记录单", icon: "star" }
+		},
+		
+		{
+			path: "/cssAnimation/marshWaterEstimate",
+			component: () => import("@/views/css-animation/riskEstimateTable"),
+			name: "marshWaterEstimate",
+			meta: { title: "洼田饮水评估表", icon: "star" }
+		},
+		
+		{
+			path: "/cssAnimation/morseFallenEstimate",
+			component: () => import("@/views/css-animation/riskEstimateTable"),
+			name: "morseFallenEstimate",
+			meta: { title: "Morse跌倒风险评估表", icon: "star" }
+		},
+		
+		{
+			path: "/cssAnimation/fangTaEstimate1",
+			component: () => import("@/views/css-animation/riskEstimateTable"),
+			name: "fangTaEstimate1",
+			meta: { title: "方塔医院约束前评估1", icon: "star" }
+		},
+		
+		{
+			path: "/cssAnimation/fangTaEstimate2",
+			component: () => import("@/views/css-animation/riskEstimateTable"),
+			name: "fangTaEstimate2",
+			meta: { title: "方塔医院约束前评估2", icon: "star" }
+		},
+		
+		{
+			path: "/cssAnimation/fallenRiskEstimate",
+			component: () => import("@/views/css-animation/riskEstimateTable"),
+			name: "fallenRiskEstimate",
+			meta: { title: "住院患者跌倒风险评估表", icon: "star" }
+		},
+
+
+		{
+			path: "/cssAnimation/riskEstimate2",
+			component: () => import("@/views/css-animation/riskEstimateTable"),
+			name: "riskEstimate2",
+			meta: { title: "入院评估表-2", icon: "star" }
+		},
+
+		{
+			path: "/cssAnimation/oldPatientMistakeBreathe",
+			component: () => import("@/views/css-animation/table1.vue"),
+			name: "oldPatientMistakeBreathe",
+			meta: { title: "老年住院误吸风险评估表", icon: "star" }
 		},
 		{
-			path: "/cssAnimation/chartView",
+			path: "/cssAnimation/coughEstimate",
 			component: () => import("@/views/css-animation/chartView.vue"),
-			name: "chartView",
-			meta: { title: "体温表", icon: "star" }
+			name: "coughEstimate",
+			meta: { title: "半定量咳嗽强度评估表", icon: "star" }
+		},
+		{
+			path: "/cssAnimation/fixedMarshWaterEstimate",
+			component: () => import("@/views/css-animation/riskEstimateTable"),
+			name: "fixedMarshWaterEstimate",
+			meta: { title: "改良洼田饮水实验评估表", icon: "star" }
 		},
 		{
 			path: "/cssAnimation/downBtn",

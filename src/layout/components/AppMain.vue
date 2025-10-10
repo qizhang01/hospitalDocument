@@ -12,13 +12,14 @@
 
 <style lang="scss" scoped>
   .app-main {
-    overflow: hidden;
+    // overflow: hidden;
     position: relative;
     box-sizing: border-box;
     padding: 104px 20px 20px;
     width: 100%;
-    min-height: calc(100vh - 50px - 43px);
+    // height: calc(100vh - 50px - 43px);
 	background-color: white;
+	height: 600px;
   }
 </style>
 
