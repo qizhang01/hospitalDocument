@@ -9,7 +9,7 @@ export default {
 	alwaysShow: true, // will always show the root menu
 	name: "third",
 	meta: {
-		title: "体征管理",
+		title: "评估评分",
 		icon: "article"
 	},
 	children: [

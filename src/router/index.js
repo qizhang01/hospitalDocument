@@ -6,18 +6,19 @@ import store from "@/store";
 
 import layout from "@/layout";
 import permissions from "./modules/permissions";
-import third from "./modules/third";
+import healthManage from "./modules/healthManage";
 import cssAnimation from "./modules/cssAnimation";
-import vueUse from "./modules/vueUse";
-
+import statistics from "./modules/statistics";
+import doctorAdvice from "./modules/doctorAdvice";
 /**
  * 私有路由表
  */
 export const privateRoutes = [
 	permissions,
-	third,
+	doctorAdvice,
+	healthManage,
 	cssAnimation,
-	vueUse
+	statistics,
 ];
 /**
  * 公开路由表
