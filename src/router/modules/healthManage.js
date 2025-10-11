@@ -21,5 +21,13 @@ export default {
 				title: "体征批量录入", icon: "article-ranking"
 			}
 		},
+		{
+			path: "/manage/temperature",
+			component: () => import("@/views/manage/temperature.vue"),
+			name: "temperature",
+			meta: {
+				title: "体温单", icon: "article-ranking"
+			}
+		},
 	]
 };
