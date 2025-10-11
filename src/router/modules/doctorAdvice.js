@@ -14,9 +14,9 @@ export default {
     children: [
         {
             path: "/doctorAdvice/index",
-            component: () => import("@/views/permissions-page/roleList.vue"),
+            component: () => import("@/views/doctorAdvice/index.vue"),
             name: "index",
-            meta: { title: "医嘱拆分", icon: "role" }
+            meta: { title: "药物医嘱拆分", icon: "role" }
         },
     ]
 };
