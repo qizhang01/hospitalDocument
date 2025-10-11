@@ -1,48 +1,38 @@
 <template>
-	<el-row :gutter="20" >
-		<el-col :span="18">
-			<el-container class="fdc" style="margin-top: 10px">
-			</el-container>
-		</el-col>
-	</el-row>
+	<div>
+		<el-row :gutter="20" >
+			<el-col :span="18">
+				<el-container class="fdc" style="margin-top: 10px">
+					<el-col :span="5" v-for="patientInfo in patientInfoArr" :key="patientInfo.id">
+						<PatientInfoCard :patient-info="patientInfo"></PatientInfoCard>
+					</el-col>
+				</el-container>
+			</el-col>
+		</el-row>
+		<Bottom class="footer"></Bottom>
+	</div>
 </template>
 
 <style lang="scss" scoped>
 @import '@/styles/mixin.scss';
 @import '@/styles/variables.module.scss';
 
-$success: #67c23a;
-$warning: #e6a23c;
-$danger: #f56c6c;
-$primary: #409eff;
-
-.box-card {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 13px;
-  height: 10rem;
-
-}
-.c1 {
-  box-shadow: 3px 3px 10px $success;
-}
-
-
 .fdc {
   display: flex;
-  flex-direction: column;
 }
-.t1 {
-  width: 1rem;
-  color: $success;
+.footer {
+   position: absolute;
+   bottom: 2px;
+   left:0px;
+   width: 100%;
 }
-
 </style>
 
 <script setup>
 import { ref, onMounted } from "vue";
-
+import Bottom from "./components/bottom.vue"
+import PatientInfoCard from "./components/patientInfoCard.vue";
+import { patientInfoArr } from "./data";
 onMounted(() => {
 	initChart();
 });

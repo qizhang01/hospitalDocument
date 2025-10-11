@@ -40,6 +40,7 @@ $primary: #409eff;
     align-items: center;
     height: 3rem;
     box-shadow: 1px 1px 2px $primary;
+    padding-left: 10px;
 }
 .item {
     display: flex;

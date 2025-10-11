@@ -17,9 +17,9 @@
     box-sizing: border-box;
     padding: 104px 20px 20px;
     width: 100%;
-    // height: calc(100vh - 50px - 43px);
+    height: calc(100vh - 30px);
 	background-color: white;
-	height: 600px;
+	// height: 600px;
   }
 </style>
 

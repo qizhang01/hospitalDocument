@@ -51,13 +51,15 @@
         align-items: center;
     }
     .icon {
-        width: 20px;
-        height: 20px;
+        width: 24px;
+        height: 24px;
     }
     .identify {
-        margin: 4px 26px;
+        display: flex;
+        margin-top: 8px;
+        justify-content: center;
         img {
-            margin-right: 6px;
+            margin-right: 8px;
         }
     }
 </style>
