@@ -29,6 +29,11 @@
             <img :src="src3">
             <span>完成(2)</span>
         </div>
+        <div class="item">
+            <img :src="src7">
+            <span>高温病人(2)</span>
+        </div>
+        <span class="item">自定义(7)</span>
     </div>
 </template>
 
@@ -63,6 +68,7 @@ const src3 = "/static/assets/finish.png"
 const src4 = "/static/assets/notes.png"
 const src5 = "/static/assets/operation.png"
 const src6 = "/static/assets/newPatient.png"
+const src7 = "/static/assets/highTemperature.png"
 
 const props = defineProps({
 	patientInfo: {
