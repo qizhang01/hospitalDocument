@@ -21,33 +21,33 @@ export default {
 		},
 		{
 			path: "/estimateAndScore/presureInjure",
-			component: () => import("@/views/estimateAndScore/downBtn.vue"),
+			component: () => import("@/views/estimateAndScore/presureInjure"),
 			name: "presureInjure",
 			meta: { title: "住院患者压力性损伤危险因素评估表", icon: "star" }
 		},
 
 		{
 			path: "/estimateAndScore/surgicalThrombus",
-			component: () => import("@/views/estimateAndScore/downBtn.vue"),
+			component: () => import("@/views/estimateAndScore/externalPatientCaprini.vue"),
 			name: "surgicalThrombus",
 			meta: { title: "外科住院患者静脉血栓栓塞症风险评估表", icon: "star" }
 		},
 		{
 			path: "/estimateAndScore/internalThrombus",
-			component: () => import("@/views/estimateAndScore/downBtn.vue"),
+			component: () => import("@/views/estimateAndScore/internalPatientCaprini.vue"),
 			name: "internalThrombus",
 			meta: { title: "内科住院患者静脉血栓栓塞症风险评估表", icon: "star" }
 		},
 
 		{
 			path: "/estimateAndScore/nurseRecord",
-			component: () => import("@/views/estimateAndScore/downBtn.vue"),
+			component: () => import("@/views/estimateAndScore/nurseRecord.vue"),
 			name: "nurseRecord",
 			meta: { title: "护理记录单", icon: "star" }
 		},
 		{
 			path: "/estimateAndScore/nurseLevelEstimate",
-			component: () => import("@/views/estimateAndScore/downBtn.vue"),
+			component: () => import("@/views/estimateAndScore/nurseLevel.vue"),
 			name: "nurseLevelEstimate",
 			meta: { title: "护理分级评定表", icon: "star" }
 		},
@@ -57,6 +57,24 @@ export default {
 			component: () => import("@/views/estimateAndScore/riskEstimateTable.vue"),
 			name: "healthConduct",
 			meta: { title: "健康指导表", icon: "star" }
+		},
+		{
+			path: "/estimateAndScore/noPlanDeletePipe",
+			component: () => import("@/views/estimateAndScore/noPlanDeletePipe.vue"),
+			name: "noPlanDeletePipe",
+			meta: { title: "住院患者非计划拔管危险因素评估表", icon: "star" }
+		},
+		{
+			path: "/estimateAndScore/protectRestrict",
+			component: () => import("@/views/estimateAndScore/protectRestrict.vue"),
+			name: "protectRestrict",
+			meta: { title: "保护性约束评估记录单", icon: "star" }
+		},
+		{
+			path: "/estimateAndScore/painRecord",
+			component: () => import("@/views/estimateAndScore/painRecord.vue"),
+			name: "painRecord",
+			meta: { title: "疼痛评估记录单", icon: "star" }
 		},
 		{
 			path: "/estimateAndScore/riskEstimate",
@@ -79,13 +97,6 @@ export default {
 		},
 
 		{
-			path: "/estimateAndScore/riskEstimate",
-			component: () => import("@/views/estimateAndScore/riskEstimateTable"),
-			name: "riskEstimateTable",
-			meta: { title: "疼痛评估记录单", icon: "star" }
-		},
-		
-		{
 			path: "/estimateAndScore/marshWaterEstimate",
 			component: () => import("@/views/estimateAndScore/riskEstimateTable"),
 			name: "marshWaterEstimate",
@@ -94,7 +105,7 @@ export default {
 		
 		{
 			path: "/estimateAndScore/morseFallenEstimate",
-			component: () => import("@/views/estimateAndScore/riskEstimateTable"),
+			component: () => import("@/views/estimateAndScore/morseFallen"),
 			name: "morseFallenEstimate",
 			meta: { title: "Morse跌倒风险评估表", icon: "star" }
 		},
@@ -114,12 +125,11 @@ export default {
 		},
 		
 		{
-			path: "/estimateAndScore/fallenRiskEstimate",
-			component: () => import("@/views/estimateAndScore/riskEstimateTable"),
-			name: "fallenRiskEstimate",
+			path: "/estimateAndScore/patientInHospitalFallen",
+			component: () => import("@/views/estimateAndScore/patientInHospitalFallen"),
+			name: "patientInHospitalFallen",
 			meta: { title: "住院患者跌倒风险评估表", icon: "star" }
 		},
-
 
 		{
 			path: "/estimateAndScore/riskEstimate2",
