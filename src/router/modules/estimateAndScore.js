@@ -135,24 +135,30 @@ export default {
 			path: "/estimateAndScore/riskEstimate2",
 			component: () => import("@/views/estimateAndScore/riskEstimateTable"),
 			name: "riskEstimate2",
-			meta: { title: "入院评估表-2", icon: "star" }
+			meta: { title: "入院评估单(2)", icon: "star" }
 		},
 
 		{
 			path: "/estimateAndScore/oldPatientMistakeBreathe",
 			component: () => import("@/views/estimateAndScore/table1.vue"),
 			name: "oldPatientMistakeBreathe",
+			meta: { title: "11老年住院误吸风险评估表", icon: "star" }
+		},
+		{
+			path: "/estimateAndScore/oldManIncorrectBreathe",
+			component: () => import("@/views/estimateAndScore/oldManIncorrectBreathe.vue"),
+			name: "oldManIncorrectBreathe",
 			meta: { title: "老年住院误吸风险评估表", icon: "star" }
 		},
 		{
-			path: "/estimateAndScore/coughEstimate",
-			component: () => import("@/views/estimateAndScore/chartView.vue"),
-			name: "coughEstimate",
+			path: "/estimateAndScore/halfCoughEstimate",
+			component: () => import("@/views/estimateAndScore/halfCough.vue"),
+			name: "halfCoughEstimate",
 			meta: { title: "半定量咳嗽强度评估表", icon: "star" }
 		},
 		{
 			path: "/estimateAndScore/fixedMarshWaterEstimate",
-			component: () => import("@/views/estimateAndScore/riskEstimateTable"),
+			component: () => import("@/views/estimateAndScore/fixedMarshWater"),
 			name: "fixedMarshWaterEstimate",
 			meta: { title: "改良洼田饮水实验评估表", icon: "star" }
 		},

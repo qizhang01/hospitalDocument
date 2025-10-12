@@ -1,16 +1,15 @@
 <template>
 	<div class="container">
-        <top-title :patientInfo="patientInfo" tableName="住院患者跌倒风险评估表"></top-title>
-        <h3 class="topic">临床判定法</h3>
+        <top-title :patientInfo="patientInfo" tableName="半定量咳嗽强度评分表"></top-title>
         <table>
           <thead>
             <tr>
-              <td rowspan="2">跌倒风险等级</td>
-              <td rowspan="2">患者情况</td>
+              <td rowspan="2">表现</td>
+              <td rowspan="2">分值</td>
               <td colspan="10">评估日期和结果</td>
             </tr>
             <tr class="date_sign">
-              <td class="vertical-text">333</td>
+              <td class="vertical-text">2025-09-02</td>
               <td class="vertical-text"></td>
               <td class="vertical-text"></td>
               <td class="vertical-text">333</td>
@@ -37,10 +36,6 @@
 	height: 16px;
 	text-align: center;
 }
-.topic {
-    width: 100%;
-    text-align: center;
-}
 
 </style>
 
@@ -56,10 +51,4 @@
     documentNo: 168-122
   }
   
-  const handleSelectPainType=(index, item)=>{
-
-  }
-  const handleSelectSymptomType=(index, item)=>{
-
-  }
 </script>

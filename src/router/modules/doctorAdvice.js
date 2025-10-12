@@ -18,5 +18,23 @@ export default {
             name: "index",
             meta: { title: "药物医嘱拆分", icon: "role" }
         },
+        {
+            path: "/doctorAdvice/adviceInfo",
+            component: () => import("@/views/doctorAdvice/adviceInfo.vue"),
+            name: "adviceInfo",
+            meta: { title: "医嘱信息", icon: "role" }
+        },
+                {
+            path: "/doctorAdvice/adviceInvolve",
+            component: () => import("@/views/doctorAdvice/adviceInvolve.vue"),
+            name: "adviceInvolve",
+            meta: { title: "医嘱执行单", icon: "role" }
+        },
+                {
+            path: "/doctorAdvice/infusionTour",
+            component: () => import("@/views/doctorAdvice/infusionTour.vue"),
+            name: "infusionTour",
+            meta: { title: "输液巡视单", icon: "role" }
+        },
     ]
 };
