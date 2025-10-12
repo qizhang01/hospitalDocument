@@ -1,38 +1,43 @@
 <template>
 	<div class="home-box">
-		<el-form v-show="showSearch" :inline="true" :model="searchForm">
-			<el-form-item label="操作时间" style="width: 308px;">
-				<el-date-picker
-					v-model="searchForm.date"
-					value-format="YYYY-MM-DD"
-					type="daterange"
-					range-separator="-"
-					start-placeholder="开始日期"
-					end-placeholder="结束日期"
-				></el-date-picker>
-			</el-form-item>
-
-			<el-form-item>
-				<el-button
-					v-auth="'/adminAuth/list'"
-					type="primary"
-					style="margin-left: -16px"
-					@click="searchEvent"
-				>
-					查询
-				</el-button>
-			</el-form-item>
-		</el-form>
-
 		<el-card>
 			<div>
                 <el-tag  v-for=" data in mockData" :key="data.id" type="danger" >{{data.name}}</el-tag>
 			</div>
-			<div class="patient-card-container">
-                <patientCard v-for="userInfo in useInfoArr" :key="userInfo.id" :patientInfo="userInfo" class="single-patient-card" ></patientCard>
-			</div>
 		</el-card>
-
+        <el-card>
+			<el-table
+				:data="[]"
+                border
+			>
+				<el-table-column prop="time" label="床位" >
+				</el-table-column>
+				<el-table-column prop="way" label="姓名" >
+				</el-table-column>
+				<el-table-column prop="score" label="医嘱" >
+				</el-table-column>
+				<el-table-column prop="strength" label="数量" >
+				</el-table-column>
+                <el-table-column prop="position" label="剂量" >
+				</el-table-column>
+				<el-table-column prop="character" label="医嘱状态">
+				</el-table-column>
+				<el-table-column prop="type" label="用法" >
+				</el-table-column>
+				<el-table-column prop="doctor" label="额度" >
+				</el-table-column>
+                <el-table-column prop="action" label="执行时间" >
+				</el-table-column>
+				<el-table-column prop="sign" label="执行护士" >
+				</el-table-column>
+				<el-table-column prop="action" label="结束时间" >
+				</el-table-column>
+				<el-table-column prop="sign" label="结束护士" >
+				</el-table-column>
+				<el-table-column prop="sign" label="备注" >
+				</el-table-column>
+			</el-table>
+		</el-card>
 		<!--角色组件-->
 		<roles-dialog
 			v-model="roleDialogVisible"

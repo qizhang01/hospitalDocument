@@ -163,6 +163,12 @@ export default {
 			meta: { title: "改良洼田饮水实验评估表", icon: "star" }
 		},
 		{
+			path: "/estimateAndScore/muscleLevel",
+			component: () => import("@/views/estimateAndScore/muscleLevel"),
+			name: "muscleLevel",
+			meta: { title: "肌力分级评估表", icon: "star" }
+		},
+		{
 			path: "/estimateAndScore/downBtn",
 			component: () => import("@/views/estimateAndScore/downBtn.vue"),
 			name: "downBtn",

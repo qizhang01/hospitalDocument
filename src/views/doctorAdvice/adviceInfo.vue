@@ -1,38 +1,60 @@
 <template>
 	<div class="home-box">
-		<el-form v-show="showSearch" :inline="true" :model="searchForm">
-			<el-form-item label="操作时间" style="width: 308px;">
-				<el-date-picker
-					v-model="searchForm.date"
-					value-format="YYYY-MM-DD"
-					type="daterange"
-					range-separator="-"
-					start-placeholder="开始日期"
-					end-placeholder="结束日期"
-				></el-date-picker>
-			</el-form-item>
-
-			<el-form-item>
-				<el-button
-					v-auth="'/adminAuth/list'"
-					type="primary"
-					style="margin-left: -16px"
-					@click="searchEvent"
-				>
-					查询
-				</el-button>
-			</el-form-item>
-		</el-form>
-
 		<el-card>
 			<div>
                 <el-tag  v-for=" data in mockData" :key="data.id" type="danger" >{{data.name}}</el-tag>
 			</div>
-			<div class="patient-card-container">
-                <patientCard v-for="userInfo in useInfoArr" :key="userInfo.id" :patientInfo="userInfo" class="single-patient-card" ></patientCard>
-			</div>
-		</el-card>
 
+		</el-card>
+		<el-card>
+            <el-table
+				:data="[]"
+                border
+			>
+				<el-table-column prop="time" label="组号" >
+				</el-table-column>
+				<el-table-column prop="way" label="名称" >
+				</el-table-column>
+				<el-table-column prop="score" label="规格" >
+				</el-table-column>
+				<el-table-column prop="strength" label="剂量" >
+				</el-table-column>
+                <el-table-column prop="position" label="剂量单位" >
+				</el-table-column>
+				<el-table-column prop="character" label="用法">
+				</el-table-column>
+				<el-table-column prop="type" label="频度" >
+				</el-table-column>
+				<el-table-column prop="doctor" label="开嘱医生" >
+				</el-table-column>
+                <el-table-column prop="action" label="起始时间" >
+				</el-table-column>
+				<el-table-column prop="sign" label="停止时间" >
+				</el-table-column>
+			</el-table>
+            <div class="topic">药物执行明细</div>
+            <el-table
+				:data="[]"
+                border
+			>
+				<el-table-column prop="time" label="执行时间状态" >
+				</el-table-column>
+				<el-table-column prop="way" label="医嘱" >
+				</el-table-column>
+				<el-table-column prop="score" label="用法" >
+				</el-table-column>
+				<el-table-column prop="strength" label="频度" >
+				</el-table-column>
+                <el-table-column prop="position" label="开始" >
+				</el-table-column>
+				<el-table-column prop="character" label="结束">
+				</el-table-column>
+				<el-table-column prop="type" label="计划执行时间" >
+				</el-table-column>
+				<el-table-column prop="doctor" label="状态" >
+				</el-table-column>
+			</el-table>
+		</el-card>
 		<!--角色组件-->
 		<roles-dialog
 			v-model="roleDialogVisible"
@@ -74,6 +96,10 @@
 }
 .single-patient-card{
 	margin-right: 10px;
+}
+
+.topic {
+    margin: 20px 0px 10px;
 }
 </style>
 
