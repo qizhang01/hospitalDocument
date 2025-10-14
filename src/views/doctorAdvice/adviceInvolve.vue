@@ -55,6 +55,18 @@
 		>
 		</roles-dialog>
 
+		<el-drawer
+			title="医嘱执行单过滤"
+			v-model="drawer"
+			direction="rtl"
+			destroy-on-close
+			size = "16%"
+			>
+			<advice-involve-filter></advice-involve-filter>
+		</el-drawer>
+		<el-button @click="drawer = true" type="primary" style="margin: 16px 8px;">
+			过滤
+		</el-button>
 		<!-- 用户导入对话框 -->
 		<!-- <UploadExcel
 			v-model="upload.open"
@@ -100,9 +112,10 @@ import { getAdmintorList, getRoleList } from "@/api/api";
 import { useRouter } from "vue-router";
 import { ElMessageBox, ElMessage } from "element-plus";
 import mockData, {useInfoArr} from './data'
+import adviceInvolveFilter from './components/adviceInvolveFilter.vue'
 
 const router = useRouter();
-
+const drawer = ref(false)
 const showSearch = ref(true);
 
 // 数据源

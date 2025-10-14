@@ -8,50 +8,49 @@
 		</el-card>
 		<el-card>
             <el-table
-				:data="[]"
+				:data="adviceTableData"
+				:span-method="objectSpanMethod"
                 border
 			>
-				<el-table-column prop="time" label="组号" >
-				</el-table-column>
-				<el-table-column prop="way" label="名称" >
-				</el-table-column>
-				<el-table-column prop="score" label="规格" >
-				</el-table-column>
-				<el-table-column prop="strength" label="剂量" >
-				</el-table-column>
-                <el-table-column prop="position" label="剂量单位" >
-				</el-table-column>
-				<el-table-column prop="character" label="用法">
-				</el-table-column>
-				<el-table-column prop="type" label="频度" >
-				</el-table-column>
-				<el-table-column prop="doctor" label="开嘱医生" >
-				</el-table-column>
-                <el-table-column prop="action" label="起始时间" >
-				</el-table-column>
-				<el-table-column prop="sign" label="停止时间" >
-				</el-table-column>
+				<el-table-column prop="bedNo" label="组号" ></el-table-column>
+				<el-table-column prop="drugName" label="名称" ></el-table-column>
+				<el-table-column prop="specifications" label="规格" ></el-table-column>
+				<el-table-column prop="dose" label="剂量" ></el-table-column>
+                <el-table-column prop="unit" label="剂量单位" ></el-table-column>
+				<el-table-column prop="usage" label="用法"></el-table-column>
+				<el-table-column prop="frequency" label="频度" ></el-table-column>
+				<el-table-column prop="doctor" label="开嘱医生" ></el-table-column>
+                <el-table-column prop="startTime" label="起始时间" ></el-table-column>
+				<el-table-column prop="endTime" label="停止时间" ></el-table-column>
 			</el-table>
             <div class="topic">药物执行明细</div>
             <el-table
-				:data="[]"
+				:data="tableData"
                 border
 			>
-				<el-table-column prop="time" label="执行时间状态" >
+				<el-table-column prop="name" label="姓名" ></el-table-column>
+				<el-table-column prop="involveStatus" label="执行时间状态" >
 				</el-table-column>
-				<el-table-column prop="way" label="医嘱" >
+				<el-table-column label="医嘱" >
+					<template #default="{ row }">
+						<div v-for="(item, index) in row.drugInfoList" :key="index">{{ item? item.name: '' }}</div>
+					</template>
 				</el-table-column>
-				<el-table-column prop="score" label="用法" >
+				<el-table-column prop="usage" label="用法" >
 				</el-table-column>
-				<el-table-column prop="strength" label="频度" >
+				<el-table-column prop="frequency" label="频度" >
 				</el-table-column>
-                <el-table-column prop="position" label="开始" >
+                <el-table-column prop="startTime" label="开始时间" >
 				</el-table-column>
-				<el-table-column prop="character" label="结束">
+				<el-table-column prop="involver" label="执行护士" >
 				</el-table-column>
-				<el-table-column prop="type" label="计划执行时间" >
+				<el-table-column prop="endTime" label="结束时间">
 				</el-table-column>
-				<el-table-column prop="doctor" label="状态" >
+				<el-table-column prop="endor" label="结束护士" >
+				</el-table-column>
+				<el-table-column prop="planTime" label="计划执行时间" >
+				</el-table-column>
+				<el-table-column prop="status" label="状态" >
 				</el-table-column>
 			</el-table>
 		</el-card>
@@ -62,6 +61,18 @@
 			@updateRole="getListData"
 		>
 		</roles-dialog>
+		<el-drawer
+			title="医嘱信息过滤"
+			v-model="drawer"
+			direction="rtl"
+			destroy-on-close
+			size = "16%"
+			>
+			<adviceInfoFilter></adviceInfoFilter>
+		</el-drawer>
+		<el-button @click="drawer = true" type="primary" style="margin: 16px 8px;">
+			过滤
+		</el-button>
 
 		<!-- 用户导入对话框 -->
 		<!-- <UploadExcel
@@ -111,11 +122,30 @@ import { ref, onMounted, watch } from "vue";
 import { getAdmintorList, getRoleList } from "@/api/api";
 import { useRouter } from "vue-router";
 import { ElMessageBox, ElMessage } from "element-plus";
-import mockData, {useInfoArr} from './data'
+import mockData, {drugInfoArr, flatObjToList, drugInfo} from './data'
+import adviceInfoFilter from './components/adviceInfoFilter.vue'
+
+const newList= flatObjToList(drugInfo)
 
 const router = useRouter();
 
 const showSearch = ref(true);
+
+const objectSpanMethod=({ row, column, rowIndex, columnIndex })=> {
+	if (columnIndex === 0) {
+		if (rowIndex === 0) {
+			return {
+				rowspan: newList.length,
+				colspan: 1,
+			}
+		}else {
+			return {
+				rowspan: 0,
+				colspan: 0,
+			}
+		}
+	}
+}
 
 // 数据源
 const searchForm = ref({
@@ -127,8 +157,11 @@ const searchForm = ref({
 	page_size: 20
 });
 
-const tableData = ref([]);
-const total = ref(0);
+const tableData = ref(drugInfoArr);
+
+const adviceTableData = ref(newList)
+
+const drawer = ref(false);
 const loading = ref(false);
 const roleList = ref([]);
 
@@ -145,8 +178,8 @@ const getListData = async() => {
 	await getAdmintorList(searchForm.value)
 		.then(data => {
 			setTimeout(() => {
-				tableData.value = data.obj;
-				total.value = Number(data.page_info.total_items);
+				// tableData.value = data.obj;
+				// total.value = Number(data.page_info.total_items);
 				loading.value = false;
 			}, 1000);
 		})

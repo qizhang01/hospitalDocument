@@ -18,7 +18,7 @@
     // overflow: hidden;
     position: relative;
     box-sizing: border-box;
-    padding: 104px 20px 20px;
+    padding: 104px 4px 4px;
     width: 100%;
     height: 100vh;
 	background-color: white;

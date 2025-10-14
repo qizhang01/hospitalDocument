@@ -1,7 +1,7 @@
 <template>
 	<div class="container">
         <el-form v-show="showSearch" :inline="true" :model="searchForm">
-			<el-form-item label="时间范围" style="width: 308px;">
+			<el-form-item label="时间范围" style="width: 308px; margin-left: 6px;">
 				<el-date-picker
 					v-model="searchForm.date"
 					value-format="YYYY-MM-DD"
