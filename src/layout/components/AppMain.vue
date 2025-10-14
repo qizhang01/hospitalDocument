@@ -7,6 +7,9 @@
 				</keep-alive>
 			</transition>
 		</router-view>
+		<!-- <div class="right-tool">
+			tools
+		</div> -->
 	</div>
 </template>
 
@@ -17,9 +20,15 @@
     box-sizing: border-box;
     padding: 104px 20px 20px;
     width: 100%;
-    height: calc(100vh - 30px);
+    height: 100vh;
 	background-color: white;
 	// height: 600px;
+  }
+  .right-tool {
+	position: absolute;
+	right: 0px;
+	top:0px;
+	height: 100%;
   }
 </style>
 

@@ -7,28 +7,33 @@
 		</el-card>
         <el-card>
 			<el-table
-				:data="[]"
+				:data="tableData"
+				stripe 
+				:span-method="objectSpanMethod"
                 border
 			>
-				<el-table-column prop="time" label="床位" >
+				<el-table-column prop="bedNo" label="床位" >
 				</el-table-column>
-				<el-table-column prop="way" label="姓名" >
+				<el-table-column prop="name" label="姓名" >
 				</el-table-column>
-				<el-table-column prop="score" label="医嘱" >
+				<el-table-column  label="医嘱" >
+					<template #default="{ row }">
+						<div v-for="(item, index) in row.drugInfoList" :key="index">{{ item? item.drugName: '' }}</div>
+					</template>
 				</el-table-column>
 				<el-table-column prop="strength" label="数量" >
 				</el-table-column>
-                <el-table-column prop="position" label="频度" >
+                <el-table-column prop="frequency" label="频度" >
 				</el-table-column>
-				<el-table-column prop="character" label="流程类型">
+				<el-table-column prop="flowType" label="流程类型">
 				</el-table-column>
-				<el-table-column prop="type" label="滴速" >
+				<el-table-column prop="speed" label="滴速" >
 				</el-table-column>
-				<el-table-column prop="doctor" label="执行人" >
+				<el-table-column prop="involver" label="执行人" >
 				</el-table-column>
-                <el-table-column prop="action" label="记录时间" >
+                <el-table-column prop="recordTime" label="记录时间" >
 				</el-table-column>
-				<el-table-column prop="sign" label="备注" >
+				<el-table-column prop="notes" label="备注" >
 				</el-table-column>
 			</el-table>
 		</el-card>
@@ -79,12 +84,18 @@
 <script setup>
 import RolesDialog from "./components/roles.vue";
 import UploadExcel from "@/components/UploadExcel";
-import patientCard from "./components/patientCard.vue";
+
 import { ref, onMounted, watch } from "vue";
 import { getAdmintorList, getRoleList } from "@/api/api";
 import { useRouter } from "vue-router";
-import { ElMessageBox, ElMessage } from "element-plus";
-import mockData, {useInfoArr} from './data'
+import mockData from './data'
+import {flapArray,useInfoArr } from './util'
+
+const {newList, cobineMap} = flapArray(useInfoArr)
+
+const tableData = ref(
+	newList
+)
 
 const router = useRouter();
 
@@ -100,10 +111,27 @@ const searchForm = ref({
 	page_size: 20
 });
 
-const tableData = ref([]);
 const total = ref(0);
 const loading = ref(false);
 const roleList = ref([]);
+const selectUserId = ref("");
+const roleDialogVisible = ref(false);
+
+const objectSpanMethod=({ row, column, rowIndex, columnIndex })=> {
+	if (columnIndex === 0 || columnIndex === 1 ||columnIndex === 2 ) {
+		if (cobineMap.get(rowIndex)) {
+			return {
+				rowspan: cobineMap.get(rowIndex),
+				colspan: 1,
+			}
+		} else {
+			return {
+				rowspan: 0,
+				colspan: 0,
+			}
+		}
+	}
+}
 
 onMounted(() => {
 	getListData();
@@ -118,8 +146,8 @@ const getListData = async() => {
 	await getAdmintorList(searchForm.value)
 		.then(data => {
 			setTimeout(() => {
-				tableData.value = data.obj;
-				total.value = Number(data.page_info.total_items);
+				// tableData.value = data.obj;
+				// total.value = Number(data.page_info.total_items);
 				loading.value = false;
 			}, 1000);
 		})
@@ -140,72 +168,11 @@ const getRoleData = async() => {
 
 		});
 };
-/**
- * 查看按钮点击事件
- */
-const onShowClick = row => {
-	router.push({
-		path: "/account/detail",
-		query: row
-	});
-};
-/**
- * 删除按钮点击事件
- */
-const onRemoveClick = row => {
-	ElMessageBox.confirm(
-		"确定要删除" + row.account + "吗",
-		{ type: "warning" }
-	).then(async() => {
-		// await deleteUser(row._id)
-		ElMessage.success("删除成功");
-		// 重新渲染数据
-		await getListData();
-	});
-};
-
-/**
- * 查看角色的点击事件
- */
-const selectUserId = ref("");
-const roleDialogVisible = ref(false);
-const onShowRoleClick = row => {
-	// 真实环境应该获取用户id，但这里mock数据我们直接使用角色名字去匹配
-	selectUserId.value = row.role_name;
-	roleDialogVisible.value = true;
-};
 
 // 保证每次打开重新获取用户角色数据
 watch(roleDialogVisible, val => {
 	if (!val) selectUserId.value = "";
 });
-
-const searchEvent = () => {
-	console.log(searchForm.value);
-	searchForm.value.page = 1;
-	getListData();
-};
-
-/** * 用户导入参数 */
-const upload = ref({
-	// 是否显示弹出层（用户导入）
-	open: false,
-	// 弹出层标题（用户导入）
-	upLoadTitle: "账号导入"
-});
-
-/** 导入按钮操作 */
-function handleImport() {
-	upload.value.open = true;
-}
-/** 文件上传成功处理 */
-const onSuccess = (response, file, fileList) => {
-	upload.value.open = false;
-	getListData();
-};
-const onDownTemplate = () => {
-	ElMessage.error("演示模式");
-};
 </script>
 
 <script>

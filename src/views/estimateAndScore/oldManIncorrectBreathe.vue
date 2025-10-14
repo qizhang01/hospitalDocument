@@ -15,7 +15,23 @@
               <td class="vertical-text">333</td>
             </tr>
           </thead>
-      </table>
+        </table>
+        <operate-tools @handleCreate="handleCreate"></operate-tools>
+        <el-dialog
+          v-model="dialogVisible"
+          title="新增"
+          width="80%"
+        >
+          <oldManIncorrectBreatheCreate></oldManIncorrectBreatheCreate>
+          <template #footer>
+            <div class="dialog-footer">
+              <el-button @click="dialogVisible = false">Cancel</el-button>
+              <el-button type="primary" @click="dialogVisible = false">
+                Confirm
+              </el-button>
+            </div>
+          </template>
+        </el-dialog>
 	</div>
 </template>
 
@@ -24,6 +40,7 @@
     position: relative;
     margin: 0 auto;
     width: 96%;
+    height: 100%;
   }
   table {
 	border-collapse: collapse;
@@ -41,6 +58,10 @@
 
 <script setup>
   import topTitle from './components/topTitle.vue';
+  import operateTools from './components/operateTools.vue';
+  import { ref } from 'vue'
+  import oldManIncorrectBreatheCreate from './editors/oldManIncorrectBreatheCreate.vue';
+  const dialogVisible = ref(false)
   const patientInfo={
     name: '某患者',
     age: 35,
@@ -49,6 +70,10 @@
     bornDate: '1998-2-14',
     bedNo: 22,
     documentNo: 168-122
+  }
+
+  const handleCreate=()=>{
+    dialogVisible.value=true
   }
   
 </script>

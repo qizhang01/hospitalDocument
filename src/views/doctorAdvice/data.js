@@ -39,19 +39,23 @@ export const useInfoArr=[
             id: 1223,
             name: '5%葡萄糖注射液',
             number: "1.00",
-            dose: "500",
+            dose: "500ml",
             usage: "静滴"
         },{
             id: 1224,
             name: '盐酸丁卡因/6g/支',
             number: "1.00",
-            dose: "6",
+            dose: "6ml",
             usage: "静注"
         }],
-        time: "2025-10-3 10:30",
+        startTime: "2025-10-3 10:30",
+        endTime: "2025-10-3 11:30",
         doctorAdvice: "",
         notes: "",
-        involver: ''
+        involver: '谢如燕',
+        endor: "谢如燕",
+        usage: "静注",
+        status: "已结束"
     },
     {
         id: 2,
@@ -65,18 +69,22 @@ export const useInfoArr=[
             id: 1223,
             name: '5%葡萄糖注射液',
             number: "1.00",
-            dose: "500",
+            dose: "500ml",
             usage: "静滴"
         },{
             id: 1225,
             name: '2025息肉术后方(溯源) (脾胃病)',
             number: "3.00",
-            dose: "64",
+            dose: "64g",
             usage: "口服"
         }],
-        time: "2025-10-3 11:30",
+        startTime: "2025-10-3 10:30",
+        endTime: "2025-10-3 11:30",
         doctorAdvice: "",
         notes: "",
-        involver: ''
+        involver: '马思婷',
+        endor: "谢如燕",
+        usage: "静注",
+        status: "已执行"
     }
 ]

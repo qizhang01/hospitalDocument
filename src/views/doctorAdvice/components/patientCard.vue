@@ -27,7 +27,7 @@
 				</el-table-column>
 				<el-table-column prop="number" label="数量" width="60">
 				</el-table-column>
-				<el-table-column prop="dose" label="剂量" width="60">
+				<el-table-column prop="dose" label="剂量" width="80">
 				</el-table-column>
 				<el-table-column prop="usage" label="用法" width="60">
 				</el-table-column>

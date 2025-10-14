@@ -7,34 +7,43 @@
 		</el-card>
         <el-card>
 			<el-table
-				:data="[]"
+				:data="tableData"
                 border
 			>
-				<el-table-column prop="time" label="床位" >
+				<el-table-column prop="bedNo" label="床位" >
 				</el-table-column>
-				<el-table-column prop="way" label="姓名" >
+				<el-table-column prop="name" label="姓名" >
 				</el-table-column>
-				<el-table-column prop="score" label="医嘱" >
+				<el-table-column  label="医嘱" >
+					<template #default="{ row }">
+						<div v-for="(item, index) in row.drugInfoList" :key="index">{{ item? item.name: '' }}</div>
+					</template>
 				</el-table-column>
-				<el-table-column prop="strength" label="数量" >
+				<el-table-column  label="数量" >
+					<template #default="{ row }">
+						<div v-for="(item, index) in row.drugInfoList" :key="index">{{ item? item.number: '' }}</div>
+					</template>
 				</el-table-column>
-                <el-table-column prop="position" label="剂量" >
+                <el-table-column  label="剂量" >
+					<template #default="{ row }">
+						<div v-for="(item, index) in row.drugInfoList" :key="index">{{ item? item.dose: '' }}</div>
+					</template>
 				</el-table-column>
-				<el-table-column prop="character" label="医嘱状态">
+				<el-table-column prop="status" label="医嘱状态">
 				</el-table-column>
-				<el-table-column prop="type" label="用法" >
+				<el-table-column prop="usage" label="用法" >
 				</el-table-column>
-				<el-table-column prop="doctor" label="额度" >
+				<el-table-column prop="frequency" label="额度" >
 				</el-table-column>
-                <el-table-column prop="action" label="执行时间" >
+                <el-table-column prop="startTime" label="执行时间" >
 				</el-table-column>
-				<el-table-column prop="sign" label="执行护士" >
+				<el-table-column prop="involver" label="执行护士" >
 				</el-table-column>
-				<el-table-column prop="action" label="结束时间" >
+				<el-table-column prop="endTime" label="结束时间" >
 				</el-table-column>
-				<el-table-column prop="sign" label="结束护士" >
+				<el-table-column prop="endor" label="结束护士" >
 				</el-table-column>
-				<el-table-column prop="sign" label="备注" >
+				<el-table-column prop="notes" label="备注" >
 				</el-table-column>
 			</el-table>
 		</el-card>
@@ -106,7 +115,7 @@ const searchForm = ref({
 	page_size: 20
 });
 
-const tableData = ref([]);
+const tableData = ref(useInfoArr);
 const total = ref(0);
 const loading = ref(false);
 const roleList = ref([]);
@@ -124,8 +133,8 @@ const getListData = async() => {
 	await getAdmintorList(searchForm.value)
 		.then(data => {
 			setTimeout(() => {
-				tableData.value = data.obj;
-				total.value = Number(data.page_info.total_items);
+				// tableData.value = data.obj;
+				// total.value = Number(data.page_info.total_items);
 				loading.value = false;
 			}, 1000);
 		})

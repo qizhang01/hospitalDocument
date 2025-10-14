@@ -15,7 +15,7 @@ export default {
 	children: [
 		{
 			path: "/estimateAndScore/firstRecord",
-			component: () => import("@/views/estimateAndScore/downBtn.vue"),
+			component: () => import("@/views/estimateAndScore/firstRecord.vue"),
 			name: "firstRecord",
 			meta: { title: "首次护程表", icon: "star" }
 		},
