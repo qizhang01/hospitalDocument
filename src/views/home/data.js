@@ -1,3 +1,4 @@
+import { identity } from "@vueuse/core"
 
 export const patientInfoArr=[
     {
@@ -24,7 +25,19 @@ export const patientInfoArr=[
         time: "2025-10-3 10:30",
         doctorAdvice: "",
         notes: "",
-        involver: ''
+        involver: '',
+        disease: '糖尿病',
+        inHospitalDate: '2025-09-30 12:34',
+        identityId: '310105200712106715',
+        tel: '13819033555',
+        doctor: '刘医生',
+        food: '',
+        nurseLevel: '二级护理',
+        allergy: '',
+        healthCareType: '实时医保',
+        prepay: '12000',
+        totalAmount: '13245.36',
+        selfAmount: '0'
     },
     {
         id: 2,
@@ -50,6 +63,41 @@ export const patientInfoArr=[
         time: "2025-10-3 11:30",
         doctorAdvice: "",
         notes: "",
-        involver: ''
+        involver: '',
+        disease: '糖尿病',
+        inHospitalDate: '2025-09-30 12:34',
+        identityId: '310105200712106715',
+        tel: '13819033666',
+        doctor: '王医生',
+        food: '',
+        nurseLevel: '二级护理',
+        allergy: '',
+        healthCareType: '实时医保',
+        prepay: '12000',
+        totalAmount: '13245.36',
+        selfAmount: '0'
     }
 ]
+
+export  const patientInfo={
+    name: '某患者',
+    age: 35,
+    department: '心肺科',
+    gender: '男',
+    bornDate: '1998-2-14',
+    bedNo: 22,
+    documentNo: 168-122,
+    hospitalNo: '145678',
+    disease: '糖尿病',
+    inHospitalDate: '2025-09-30 12:34',
+    identityId: '310105200712106715',
+    tel: '13819033555',
+    doctor: '刘医生',
+    food: '',
+    nurseLevel: '二级护理',
+    allergy: '',
+    healthCareType: '实时医保',
+    prepay: '12000',
+    totalAmount: '13245.36',
+    selfAmount: '0'
+}
