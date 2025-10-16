@@ -122,6 +122,22 @@
 				</el-table-column> -->
 			</el-table>
 		</el-card>
+		<el-dialog
+			:model-value ="dialogVisible"
+			title="体征录入"
+			width="80%"
+			:show-close = "false"
+			>
+			<batchInputEditor></batchInputEditor>
+			<template #footer>
+				<div class="dialog-footer">
+				<el-button @click="closeCreate">Cancel</el-button>
+				<el-button type="primary" @click="closeCreate">
+					Confirm
+				</el-button>
+				</div>
+			</template>
+        </el-dialog>
 	</div>
 </template>
 
@@ -145,11 +161,18 @@
 
 <script setup>
 
-import { ref, onMounted } from "vue";
-import { getRoleList } from "@/api/api";
-import { ElMessage } from "element-plus";
+	import { ref, onMounted } from "vue";
+	import { getRoleList } from "@/api/api";
+	import { ElMessage } from "element-plus";
+	import { computed } from 'vue'
+	import { useStore } from "vuex";
+    import batchInputEditor from "./editors/batchInputEditor.vue";
+	const store = useStore();
+	const dialogVisible = computed(() =>
+		store.getters.newCreateDialogOpened? true : false
+	);
 
-const showSearch = ref(true);
+	const showSearch = ref(true);
 
 onMounted(() => {
 	getListData();
@@ -165,7 +188,6 @@ const searchForm = ref({
 });
 
 const tableData = ref([]);
-const total = ref(0);
 const loading = ref(false);
 /**
  * 获取角色列表
@@ -185,12 +207,10 @@ const getListData = async() => {
 		});
 };
 
-/**
- * 分配权限
- */
-const handleEdit = row => {
 
-};
+  const closeCreate=()=>{
+    store.commit("app/closeNewCreateDialogOpened");
+  }
 
 </script>
 <script>

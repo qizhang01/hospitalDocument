@@ -16,17 +16,18 @@
             </tr>
           </thead>
         </table>
-        <operate-tools @handleCreate="handleCreate"></operate-tools>
+        <!-- <operate-tools @handleCreate="handleCreate"></operate-tools> -->
         <el-dialog
-          v-model="dialogVisible"
-          title="新增"
+          :model-value ="dialogVisible"
+          title="新建(老年住院患者误吸风险评估表)"
           width="80%"
+          :show-close = "false"
         >
           <oldManIncorrectBreatheCreate></oldManIncorrectBreatheCreate>
           <template #footer>
             <div class="dialog-footer">
-              <el-button @click="dialogVisible = false">Cancel</el-button>
-              <el-button type="primary" @click="dialogVisible = false">
+              <el-button @click="closeCreate">Cancel</el-button>
+              <el-button type="primary" @click="closeCreate">
                 Confirm
               </el-button>
             </div>
@@ -59,9 +60,17 @@
 <script setup>
   import topTitle from './components/topTitle.vue';
   import operateTools from './components/operateTools.vue';
-  import { ref } from 'vue'
+  import { computed } from 'vue'
   import oldManIncorrectBreatheCreate from './editors/oldManIncorrectBreatheCreate.vue';
-  const dialogVisible = ref(false)
+  import { useStore } from "vuex";
+
+  const store = useStore();
+  const dialogVisible = computed(() =>
+    store.getters.newCreateDialogOpened? true : false
+  );
+
+  // const dialogVisible =  store.getters.newCreateDialogOpened
+
   const patientInfo={
     name: '某患者',
     age: 35,
@@ -72,8 +81,7 @@
     documentNo: 168-122
   }
 
-  const handleCreate=()=>{
-    dialogVisible.value=true
+  const closeCreate=()=>{
+    store.commit("app/closeNewCreateDialogOpened");
   }
-  
 </script>

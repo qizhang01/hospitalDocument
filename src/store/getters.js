@@ -7,12 +7,12 @@ const getters = {
 	userInfo: state => state.user.userInfo,
 	cssVar: state => variables,
 	sidebarOpened: state => state.app.sidebarOpened,
+	newCreateDialogOpened: state => state.app.newCreateDialogOpened,
 	tagsViewList: state => state.app.tagsViewList,
 	roles: state => state.user.roles,
 	buttons: state => state.user.buttons,
 	hasRoles: state => {
 		return state.user.roles && state.user.roles.length > 0;
-	}
-
+	} 
 };
 export default getters;

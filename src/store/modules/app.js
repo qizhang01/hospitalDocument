@@ -5,7 +5,8 @@ export default {
 	namespaced: true,
 	state: () => ({
 		sidebarOpened: true,
-		tagsViewList: getItem(TAGS_VIEW) || []
+		tagsViewList: getItem(TAGS_VIEW) || [],
+		newCreateDialogOpened: false
 	}),
 	mutations: {
 		triggerSidebarOpened(state) {
@@ -58,7 +59,14 @@ export default {
 				state.tagsViewList = [];
 			}
 			setItem(TAGS_VIEW, state.tagsViewList);
-		}
+		},
 
+		openNewCreateDialogOpened(state, payload){
+            state.newCreateDialogOpened = true
+		},
+
+		closeNewCreateDialogOpened(state, payload){
+			state.newCreateDialogOpened = false
+		}
 	}
 };
