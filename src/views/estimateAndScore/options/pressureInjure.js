@@ -1,0 +1,6 @@
+export const sense = ["完全受限","非常受限","轻度受限","未受限"]
+export const damp = ["持续潮湿","潮湿","有时潮湿","很少潮湿"]
+export const activity = ["长期卧床","可以坐椅子","偶尔行走","经常行走"]
+export const move = ["完全无法移动","严重受限","轻度受限","未受限"]
+export const nutrition = ["非常差","可能不足够","足够","非常好"]
+export const cutePower = ["有问题","有潜在问题","无明显问题"]

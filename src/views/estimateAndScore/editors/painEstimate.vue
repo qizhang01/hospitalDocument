@@ -134,7 +134,7 @@
 
 <script setup>
     import {estimateTools, painScore, painTough, painPosition, painCharacter, nurseAction} from '../options/pain'
-    import patientDescibe from './components/patientDescribe.vue';
+    import patientDescibe from './components/patientDescribeHeader.vue';
     import {ref} from "vue";
     import {patientInfo} from './data'
     

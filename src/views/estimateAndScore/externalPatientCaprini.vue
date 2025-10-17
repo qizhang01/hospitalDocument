@@ -16,7 +16,23 @@
               <td class="vertical-text">333</td>
             </tr>
           </thead>
-      </table>
+        </table>
+        <el-dialog
+            :model-value ="dialogVisible"
+            title="新建(外科住院患者Caprini静脉血栓栓塞症评估表)"
+            width="80%"
+            :show-close = "false"
+        >
+			<externalPatientCapriniEditor></externalPatientCapriniEditor>
+			<template #footer>
+				<div class="dialog-footer">
+				<el-button @click="closeCreate">取消</el-button>
+				<el-button type="primary" @click="closeCreate">
+					确定
+				</el-button>
+				</div>
+			</template>
+        </el-dialog>
 	</div>
 </template>
 
@@ -41,7 +57,19 @@
 </style>
 
 <script setup>
-  import topTitle from './components/topTitle.vue';
+    import topTitle from './components/topTitle.vue';
+    import { computed } from 'vue'
+    import { useStore } from "vuex";
+    import externalPatientCapriniEditor from './editors/externalPatientCapriniEditor.vue';
+    const store = useStore();
+    const dialogVisible = computed(() =>
+        store.getters.newCreateDialogOpened? true: false
+    );
+
+    const closeCreate=()=>{
+        store.commit("app/closeNewCreateDialogOpened");
+    }
+
   const patientInfo={
     name: '某患者',
     age: 35,

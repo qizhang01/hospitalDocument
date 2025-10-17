@@ -8,8 +8,17 @@ export const relationPerson=["本人","其他"]
 export const isLearningOfDisease = ["不理解","部分理解","完全理解","不适用"]
 export const beObserve=["常探视","少探视","不适用"]
 export const payWay = ["医保","农保","商业保","自费","其他"]
+export const specialPerson = ["否","是","儿童(14)","青少年(14-17)","虚弱老人","终止妊娠","情绪或精神错乱",
+    "疑是有药物依赖","受虐待和疏忽","接受化疗或放疗","免疫系统受破坏"]
 export const consciousness=["清醒","嗜睡","模糊","昏睡","昏迷","其他"]
+export const visionStatus = ["正常","异常","弱视","近视","远视","失明","其他"]
+
 export const status = ["正常","异常"]
+export const toothStatus = ["正常","异常","假牙","缺牙","其他"]
+export const skinStatus = ["正常","异常","黄染","苍白","红斑","紫绀","压力性损伤",
+    "潮红","溃烂","皮疹","其他"
+]
+export const urinateStatus = ["正常","异常","排尿困难","失禁","导尿","导频","血尿","其他"]
 export const stoolStatus = ["正常","异常","便秘","腹泻","便血","失禁","其他"]
 
 export const spirit = ["正常","萎靡","倦怠"]

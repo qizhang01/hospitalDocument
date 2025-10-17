@@ -160,6 +160,19 @@
                     </el-option>
                 </el-select>
             </div>
+
+            <div class="group">
+                <span class="title">其他</span>
+                <el-select v-model="otherSelectValue" placeholder="请选择">
+                    <el-option
+                        v-for="(item,index) in other"
+                        :key="index"
+                        :label="item"
+                        :value="item"
+                    >
+                    </el-option>
+                </el-select>
+            </div>
             <div class="group">
                 <span class="title">地高辛</span>
                 <el-select v-model="diGaoXinValue" placeholder="请选择">
@@ -191,7 +204,15 @@
             <div class="topic">病人事件</div>
             <div class="group">
                 <span class="title">事件名称</span>
-                <el-input v-modal="eventValue" placeholder="请输入" class="input"></el-input>
+                <el-select v-model="eventValue" placeholder="请选择">
+                    <el-option
+                        v-for="(item,index) in eventName"
+                        :key="index"
+                        :label="item"
+                        :value="item"
+                    >
+                    </el-option>
+                </el-select>
             </div>
             <i class="el-icon-edit"></i>
             <el-button type="primary" icon="el-icon-search">搜索</el-button>
@@ -241,7 +262,7 @@
 </style>
 
 <script setup>
-    import {temperature, breatheWay, allergy, climate, pulse,pulseCondition,tongueCondition, diGaoXin} from '../options/batchInput'
+    import {temperature, breatheWay, allergy, climate, pulse,pulseCondition,tongueCondition, other ,diGaoXin, eventName} from '../options/batchInput'
     import {ref} from "vue";
     import { Top, Bottom } from '@element-plus/icons'
 
@@ -274,6 +295,7 @@
     const allergyValue2 = ref('')
     const climateValue = ref('')
     const otherValue = ref('')
+    const otherSelectValue = ref('')
     const diGaoXinValue = ref('')
 
     const eventValue = ref('')

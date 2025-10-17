@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="patientInfo-container">
         <section>
             <span class="label">科室</span>
             <el-input :model-value="patientInfo.department" placeholder="请输入内容"></el-input>
@@ -34,16 +34,19 @@
 </template>
 
 <style lang="scss" scoped>
-    .container {
+    .patientInfo-container {
         display: flex;
-        margin: 0px;
+        justify-content: start;
         section {
             display: flex;
             align-items: center;
             margin-right: 16px;
             .label{
-                width: 60px;
+                width: 100px;
             }
+        }
+        .label {
+            white-space: nowrap;
         }
     }
 </style>

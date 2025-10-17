@@ -100,7 +100,7 @@
 
 <script setup>
     import {lowDanger, middleDanger, highDanger,actions} from '../options/patientInHospitalFallen'
-    import patientDescibe from './components/patientDescribe.vue';
+    import patientDescibe from './components/patientDescribeHeader.vue';
     import {ref} from "vue";
      import {patientInfo} from './data'
 

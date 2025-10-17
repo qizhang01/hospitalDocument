@@ -39,7 +39,23 @@
                    <td>无</td>  
             </tr>
           </thead>
-      </table>
+        </table>
+      	<el-dialog
+          :model-value ="dialogVisible"
+          title="新建(疼痛评估记录单)"
+          width="80%"
+          :show-close = "false"
+        >
+			<protectRestrictEditor></protectRestrictEditor>   
+			<template #footer>
+				<div class="dialog-footer">
+				<el-button @click="closeCreate">Cancel</el-button>
+				<el-button type="primary" @click="closeCreate">
+					Confirm
+				</el-button>
+				</div>
+			</template>
+        </el-dialog>
 	</div>
 </template>
 
@@ -69,6 +85,19 @@
 
 <script setup>
   import topTitle from './components/topTitle.vue';
+import protectRestrictEditor from './editors/protectRestrictEditor.vue';
+
+  import { computed } from 'vue'
+  import { useStore } from "vuex";
+
+  const store = useStore();
+  const dialogVisible = computed(() =>
+    store.getters.newCreateDialogOpened? true: false
+  );
+
+  const closeCreate=()=>{
+    store.commit("app/closeNewCreateDialogOpened");
+  }
   const patientInfo={
     name: '某患者',
     age: 35,

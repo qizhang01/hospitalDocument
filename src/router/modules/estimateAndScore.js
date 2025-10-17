@@ -54,7 +54,7 @@ export default {
 		
 		{
 			path: "/estimateAndScore/healthConduct",
-			component: () => import("@/views/estimateAndScore/riskEstimateTable.vue"),
+			component: () => import("@/views/estimateAndScore/healthConduct.vue"),
 			name: "healthConduct",
 			meta: { title: "健康指导表", icon: "star" }
 		},
@@ -87,6 +87,12 @@ export default {
 			path: "/estimateAndScore/painNurse",
 			component: () => import("@/views/estimateAndScore/painEstimateTable"),
 			name: "painNurse",
+			meta: { title: "疼痛护理记录11", icon: "star" }
+		},
+        {
+			path: "/estimateAndScore/painNurseRecord",
+			component: () => import("@/views/estimateAndScore/painNurseRecord"),
+			name: "painNurseRecord",
 			meta: { title: "疼痛护理记录", icon: "star" }
 		},
 		{
@@ -135,9 +141,14 @@ export default {
 			path: "/estimateAndScore/riskEstimate2",
 			component: () => import("@/views/estimateAndScore/riskEstimateTable"),
 			name: "riskEstimate2",
+			meta: { title: "入院评估单(21)", icon: "star" }
+		},
+		{
+			path: "/estimateAndScore/inHospitalEstimate",
+			component: () => import("@/views/estimateAndScore/inHospitalEstimate"),
+			name: "inHospitalEstimate",
 			meta: { title: "入院评估单(2)", icon: "star" }
 		},
-
 		{
 			path: "/estimateAndScore/oldPatientMistakeBreathe",
 			component: () => import("@/views/estimateAndScore/table1.vue"),
