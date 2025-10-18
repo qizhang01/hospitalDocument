@@ -39,7 +39,23 @@
                    <td>右</td>  
             </tr>
           </thead>
-      </table>
+        </table>
+      	<el-dialog
+          :model-value ="dialogVisible"
+          title="新建(护理记录单)"
+          width="80%"
+          :show-close = "false"
+        >
+			<nurseRecordEditor></nurseRecordEditor>   
+			<template #footer>
+				<div class="dialog-footer">
+				<el-button @click="closeCreate">Cancel</el-button>
+				<el-button type="primary" @click="closeCreate">
+					Confirm
+				</el-button>
+				</div>
+			</template>
+        </el-dialog>
 	</div>
 </template>
 
@@ -68,21 +84,28 @@
 </style>
 
 <script setup>
-  import topTitle from './components/topTitle.vue';
-  const patientInfo={
-    name: '某患者',
-    age: 35,
-    department: '心肺科',
-    gender: '男',
-    bornDate: '1998-2-14',
-    bedNo: 22,
-    documentNo: 168-122
-  }
-  
-  const handleSelectPainType=(index, item)=>{
+    import topTitle from './components/topTitle.vue';
+    import nurseRecordEditor from './editors/nurseRecordEditor.vue';
 
-  }
-  const handleSelectSymptomType=(index, item)=>{
+    import { computed } from 'vue'
+    import { useStore } from "vuex";
 
-  }
+    const store = useStore();
+    const dialogVisible = computed(() =>
+        store.getters.newCreateDialogOpened? true: false
+    );
+
+    const closeCreate=()=>{
+        store.commit("app/closeNewCreateDialogOpened");
+    }
+    const patientInfo={
+        name: '某患者',
+        age: 35,
+        department: '心肺科',
+        gender: '男',
+        bornDate: '1998-2-14',
+        bedNo: 22,
+        documentNo: 168-122
+    }
+    
 </script>

@@ -15,34 +15,42 @@
 
         <div class="group">
             <span class="title">疼痛部门</span>
-            <el-input
-                size="small"
-                placeholder="请输入内容"
-                suffix-icon="el-icon-date"
-                v-model="input1"
-            >
-            </el-input>
-            <el-input
-                size="small"
-                placeholder="请输入内容"
-                suffix-icon="el-icon-date"
-                v-model="input2"
-            >
-            </el-input>
-            <el-input
-                size="small"
-                placeholder="请输入内容"
-                suffix-icon="el-icon-date"
-                v-model="input3"
-            >
-            </el-input>
-            <el-input
-                size="small"
-                placeholder="请输入内容"
-                suffix-icon="el-icon-date"
-                v-model="input4"
-            >
-            </el-input>
+            <div style="margin-right: 10px;">
+                <el-input
+                    size="small"
+                    placeholder="请输入内容"
+                    suffix-icon="el-icon-date"
+                    v-model="input1"
+                >
+                </el-input>
+            </div>
+            <div style="margin-right: 10px;">
+                <el-input
+                    size="small"
+                    placeholder="请输入内容"
+                    suffix-icon="el-icon-date"
+                    v-model="input2"
+                >
+                </el-input>
+            </div>
+            <div style="margin-right: 10px;">
+                <el-input
+                    size="small"
+                    placeholder="请输入内容"
+                    suffix-icon="el-icon-date"
+                    v-model="input3"
+                >
+                </el-input>
+            </div>
+            <div style="margin-right: 10px;">
+                <el-input
+                    size="small"
+                    placeholder="请输入内容"
+                    suffix-icon="el-icon-date"
+                    v-model="input4"
+                >
+                </el-input>
+            </div>
         </div>
 
 
@@ -59,7 +67,7 @@
             </el-select>
         </div>
         <div class="group">
-            <span class="title">过去24小时内NRS评分最高时</span>
+            <span >过去24小时内NRS评分最高时</span>
             <el-select v-model="value" placeholder="请选择">
                 <el-option
                 v-for="item in []"
@@ -71,7 +79,7 @@
             </el-select>
         </div>
         <div class="group">
-            <span class="title">过去24小时内NRS评分最低时</span>
+            <span >过去24小时内NRS评分最低时</span>
             <el-select v-model="value" placeholder="请选择">
                 <el-option
                 v-for="item in []"
@@ -152,7 +160,7 @@
         </div>
 
         <div class="group">
-            <span class="title">使用止痛药/PCA治疗</span>
+            <span >使用止痛药/PCA治疗</span>
 
         </div>
 

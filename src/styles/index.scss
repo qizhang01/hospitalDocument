@@ -64,3 +64,13 @@ div:focus {
 	margin-right: 10px;
 	white-space: nowrap;
 }
+.el-dialog__body {
+    max-height: 650px;
+    overflow-y: auto;
+    padding: 14px 20px !important;
+}
+.group {
+    .el-input--small  {
+        width: 200px;
+    }
+}

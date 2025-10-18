@@ -1,6 +1,6 @@
 <template>
 	<div class="container">
-        <top-title :patientInfo="patientInfo" tableName="疼痛评估记录单"></top-title>
+        <top-title :patientInfo="patientInfo" tableName="疼痛护理记录单"></top-title>
         
 		<el-table
 			:data="[]"
@@ -30,11 +30,11 @@
 
 		<el-dialog
           :model-value ="dialogVisible"
-          title="新建(疼痛评估记录单)"
+          title="新建(疼痛护理记录单)"
           width="80%"
           :show-close = "false"
         >
-			<painEstimate></painEstimate>   
+			<painNurseRecordEditor></painNurseRecordEditor>   
 			<template #footer>
 				<div class="dialog-footer">
 				<el-button @click="closeCreate">Cancel</el-button>
@@ -57,7 +57,7 @@
 
 <script setup>
   import topTitle from './components/topTitle.vue';
-  import painEstimate from './editors/painEstimate.vue';
+  import painNurseRecordEditor from './editors/painNurseRecordEditor.vue';
 
   import { computed } from 'vue'
   import { useStore } from "vuex";

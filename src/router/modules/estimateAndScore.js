@@ -137,12 +137,12 @@ export default {
 			meta: { title: "住院患者跌倒风险评估表", icon: "star" }
 		},
 
-		{
-			path: "/estimateAndScore/riskEstimate2",
-			component: () => import("@/views/estimateAndScore/riskEstimateTable"),
-			name: "riskEstimate2",
-			meta: { title: "入院评估单(21)", icon: "star" }
-		},
+		// {
+		// 	path: "/estimateAndScore/riskEstimate2",
+		// 	component: () => import("@/views/estimateAndScore/riskEstimateTable"),
+		// 	name: "riskEstimate2",
+		// 	meta: { title: "入院评估单(21)", icon: "star" }
+		// },
 		{
 			path: "/estimateAndScore/inHospitalEstimate",
 			component: () => import("@/views/estimateAndScore/inHospitalEstimate"),
@@ -178,12 +178,6 @@ export default {
 			component: () => import("@/views/estimateAndScore/muscleLevel"),
 			name: "muscleLevel",
 			meta: { title: "肌力分级评估表", icon: "star" }
-		},
-		{
-			path: "/estimateAndScore/downBtn",
-			component: () => import("@/views/estimateAndScore/downBtn.vue"),
-			name: "downBtn",
-			meta: { title: "新体温表", icon: "star" }
 		},
 	]
 };

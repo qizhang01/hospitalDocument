@@ -11,3 +11,9 @@ export const fallenNurse = ["一般措施","标准预防跌倒措施","高危预
 
 export const healthEducation = ["入院介绍","饮食指导","药物指导","心理护理","特殊检查指导","术前指导",
     "术后宣教","康复指导","出院指导","疾病指导","排泄指导","有效咳嗽指导"]
+
+export const senseStatus = ["1清醒","2烦躁","3淡漠","4嗜睡","5昏迷","6时清是醒"]
+
+export const pupilToLight = ['迟钝', '缩小']
+export const nurseLevel = ["特级护理","一级护理","二级护理","三级护理"]
+export const food = ["完全独立(10)","需部分帮助(5)","需极大帮助或留置胃管(0)"]

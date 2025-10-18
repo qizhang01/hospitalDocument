@@ -8,9 +8,7 @@
 			<!-- 引导组件-->
 			<guide class="right-menu-item hover-effect" />
 			<!--页面搜索组件-->
-			<header-search class="right-menu-item hover-effect"></header-search>
 			<!--全屏组件-->
-			<screenfull class="right-menu-item hover-effect" />
 			<!-- 登录账号信息 -->
 			<el-dropdown class="avatar-container" trigger="click">
 				<div class="avatar-wrapper">
