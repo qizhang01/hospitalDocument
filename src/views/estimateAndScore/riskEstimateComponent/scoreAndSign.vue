@@ -23,7 +23,7 @@
         <td class="score_td">{{ lowRiskScoreValArr[6]??'' }}</td>
     </tr>
     <tr>
-        <td class="score_td" colspan="2">高危&rt4</td>
+        <td class="score_td" colspan="2">高危&gt4</td>
         <td class="score_td">{{ highRiskScoreValArr[0]??'' }}</td>
         <td class="score_td">{{ highRiskScoreValArr[1]??'' }}</td>
         <td class="score_td">{{ highRiskScoreValArr[2]??'' }}</td>

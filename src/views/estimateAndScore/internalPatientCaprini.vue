@@ -46,6 +46,22 @@
 			></score-and-sign>
 		</table>
 		<bottom></bottom>
+        <el-dialog
+            :model-value ="dialogVisible"
+            title="新建(内科住院患者Caprini静脉血栓栓塞症评估表)"
+            width="80%"
+            :show-close = "false"
+        >
+			<internalPatientCapriniEditor></internalPatientCapriniEditor>
+			<template #footer>
+				<div class="dialog-footer">
+				<el-button @click="closeCreate">取消</el-button>
+				<el-button type="primary" @click="closeCreate">
+					确定
+				</el-button>
+				</div>
+			</template>
+        </el-dialog>
 	</div>
 </template>
 
@@ -81,6 +97,18 @@
 	import scoreAndSign from './riskEstimateComponent/scoreAndSign.vue';
 	import bottom from './riskEstimateComponent/bottom.vue';
     import top from './riskEstimateComponent/top.vue';
+    import { computed } from 'vue'
+    import { useStore } from "vuex";
+    import internalPatientCapriniEditor from './editors/internalPatientCapriniEditor.vue';
+    const store = useStore();
+    const dialogVisible = computed(() =>
+        store.getters.newCreateDialogOpened? true: false
+    );
+
+    const closeCreate=()=>{
+        store.commit("app/closeNewCreateDialogOpened");
+    }
+
 	const patientInfo={
 		name: '某患者',
 		age: 35,
